@@ -1,0 +1,33 @@
+--Create a bike store database for mulitiple locations
+
+CREATE TABLE bikes(id INTEGER PRIMARY KEY, name TEXT,store TEXT,bike_type TEXT, price INTEGER, quantity INTEGER);
+INSERT INTO bikes VALUES (1, "ROSCO","Sundog","Hardtail", 2000,5);
+INSERT INTO bikes VALUES (2,"Avalanche","Trails","Hardtail", 1000,6);
+INSERT INTO bikes VALUES (3,"Speed Demon","Trails","Hardtail", 1500,3);
+INSERT INTO bikes VALUES (4,"Silver Stallion","Trails","Full Susp", 3000,9);
+INSERT INTO bikes VALUES (5,"Zeus","Trails","Full Susp", 6000,5);
+INSERT INTO bikes VALUES (6,"Raven","Sundog","Hardtail", 1600,7);
+INSERT INTO bikes VALUES (7,"T Rider","Sundog","Full Susp", 8000,2);
+INSERT INTO bikes VALUES (8,"The Comet","Trails","Full Susp", 4000,3);
+INSERT INTO bikes VALUES (9,"Jet","Sundog","Full Susp", 9000,1);
+INSERT INTO bikes VALUES (10, "Firefly", "Trails","Hardtail", 1000,3);
+INSERT INTO bikes VALUES (11,"Siren","Sundog","Hardtail", 1500,4);
+INSERT INTO bikes VALUES (12,"Pegasus","Trails","Full Susp", 2500,2);
+INSERT INTO bikes VALUES (13,"The V","Sundog","Full Susp", 8000,3);
+INSERT INTO bikes VALUES (14,"Ball to the wall","Trails","Full Susp", 5000,1);
+INSERT INTO bikes VALUES (15,"Luxe","Sundog","Full Susp", 5000,6);
+
+
+-- display the dataase order by specific store
+SELECT * FROM bikes
+ ORDER BY store;
+
+-- what is the sum quantity of bike inventory per store 
+SELECT SUM(quantity)
+ FROM bikes 
+GROUP BY store;
+
+-- what is the sum quantity of bike inventory per store, bike_type, quantity 
+SELECT store, bike_type, SUM(quantity)
+ FROM bikes 
+GROUP BY store, bike_type;
